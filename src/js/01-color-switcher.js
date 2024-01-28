@@ -42,4 +42,3 @@ const randomBodyColorGenerator = {
 };
 
 randomBodyColorGenerator.start();
-
