@@ -13,33 +13,21 @@ const randomBodyColorGenerator = {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   },
 
-  startInterval() {
-    this.intervalID = setInterval(() => {
-      body.style.backgroundColor = this.getRandomHexColor();
-    }, this.DELAY);
-  },
-
-  stopInterval() {
-    clearInterval(this.intervalID);
-  },
-
-  toggleButtons() {
-    startBtn.disabled = !startBtn.disabled;
-    stopBtn.disabled = !stopBtn.disabled;
-  },
-
   start() {
     startBtn.addEventListener('click', () => {
-      this.startInterval();
-      this.toggleButtons();
+      this.intervalID = setInterval(() => {
+        body.style.backgroundColor = this.getRandomHexColor();
+      }, this.DELAY);
+      startBtn.disabled = true;
+      stopBtn.disabled = false;
     });
 
     stopBtn.addEventListener('click', () => {
-      this.stopInterval();
-      this.toggleButtons();
+      clearInterval(this.intervalID);
+      stopBtn.disabled = true;
+      startBtn.disabled = false;
     });
   },
 };
 
 randomBodyColorGenerator.start();
-
