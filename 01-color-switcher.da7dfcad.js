@@ -1,0 +1,2 @@
+const t=document.body,e=document.querySelector("button[data-start]"),a=document.querySelector("button[data-stop]");a.disabled=!0;({DELAY:1e3,intervalID:null,getRandomHexColor:()=>`#${Math.floor(16777215*Math.random()).toString(16)}`,start(){e.addEventListener("click",(()=>{this.intervalID=setInterval((()=>{t.style.backgroundColor=this.getRandomHexColor()}),this.DELAY),e.disabled=!0,a.disabled=!1})),a.addEventListener("click",(()=>{clearInterval(this.intervalID),a.disabled=!0,e.disabled=!1}))}}).start();
+//# sourceMappingURL=01-color-switcher.da7dfcad.js.map
